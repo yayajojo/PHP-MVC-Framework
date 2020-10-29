@@ -1,0 +1,16 @@
+{
+    "name": "jhao/mvc_framework",
+    "description": "PHP MVC Framework Practice",
+    "authors": [
+        {
+            "name": "May Jhao",
+            "email": "fleetinghappines@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\":"./"
+        }
+    },
+    "require": {}
+}
