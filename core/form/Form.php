@@ -1,6 +1,8 @@
 <?php
 namespace app\core\form;
 
+use app\core\Model;
+
 class Form
 {
     public static function begin($method, $action)
@@ -14,7 +16,7 @@ class Form
         echo '</form>';
     }
 
-    public function field($model,$attribue)
+    public function field(Model $model,string $attribue)
     {
         return new Field($model,$attribue);
     }

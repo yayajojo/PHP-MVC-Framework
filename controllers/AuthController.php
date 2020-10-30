@@ -10,10 +10,10 @@ class AuthController extends Controller
 {
     public function register(Request $request)
     {
+        $registerModel = new RegisterModel();
         if ($request->isGet()) {
-            return $this->render('register', 'auth');
+            return $this->render('register', 'auth', ['model' => $registerModel]);
         } elseif ($request->isPost()) {
-            $registerModel = new RegisterModel();
             $registerModel->loadData($request->getBody());
             if ($registerModel->validate() && $registerModel->register()) {
                 return $this->render('home', 'main', ['name' => 'Jhao']);
