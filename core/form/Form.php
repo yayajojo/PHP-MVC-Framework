@@ -16,8 +16,8 @@ class Form
         echo '</form>';
     }
 
-    public function field(Model $model,string $attribue)
+    public function field(Model $model,string $attribue, $type='text')
     {
-        return new Field($model,$attribue);
+        return new Field($model,$attribue,$type);
     }
 }

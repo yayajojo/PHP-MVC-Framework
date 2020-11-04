@@ -8,7 +8,7 @@
         </div>
     </div>
      <?= $form->field($model, 'email')?>
-     <?= $form->field($model, 'password')?>
-     <?= $form->field($model, 'password_confirmation')?>
+     <?= $form->field($model, 'password','password','password')?>
+     <?= $form->field($model, 'password_confirmation','password')?>
     <button type="submit" class="btn btn-primary">Sign in</button>
 <?php $form->end()?>

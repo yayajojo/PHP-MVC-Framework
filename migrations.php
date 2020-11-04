@@ -1,10 +1,7 @@
 <?php
-require_once __DIR__.'/vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
+
 use app\core\Application;
-
-
-
-
 
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
@@ -20,7 +17,6 @@ $config = [
 
 $path = __DIR__;
 $app = new Application($path, $config);
-var_dump($app1);
-
 $app->db->applyMigrations();
+
 
