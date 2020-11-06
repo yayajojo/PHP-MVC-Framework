@@ -1,6 +1,7 @@
 <?php
 namespace app\core\form;
 
+use app\core\DbModel;
 use app\core\Model;
 
 class Form
@@ -16,7 +17,7 @@ class Form
         echo '</form>';
     }
 
-    public function field(Model $model,string $attribue, $type='text')
+    public function field(DbModel $model,string $attribue, $type='text')
     {
         return new Field($model,$attribue,$type);
     }

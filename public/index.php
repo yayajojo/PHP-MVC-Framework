@@ -6,7 +6,7 @@ use app\controllers\SiteContactController;
 use app\controllers\HomeController;
 use app\controllers\AuthController;
 
-
+ini_set('session.save_path',dirname(__DIR__).'/sessions');
 
 $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->load();

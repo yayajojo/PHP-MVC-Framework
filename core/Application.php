@@ -10,6 +10,7 @@ class Application
     public $router;
     public static $app;
     public $db;
+    public $session;
     
     public function __construct(string $rootPath, array $config)
     {
@@ -19,6 +20,7 @@ class Application
         $this->router = new Router($this->request, $this->response);
         self::$app = $this;
         $this->db = new Database($config['db']);
+        $this->session = new Session();
         
     }
     public function run(){

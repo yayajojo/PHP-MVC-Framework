@@ -2,7 +2,8 @@
 
 namespace app\core\form;
 
-use app\core\Model;
+use app\core\DbModel;
+
 
 class Field
 {
@@ -10,7 +11,7 @@ class Field
     protected $attribute;
     protected $type;
 
-    public function __construct(Model $model, string $attribute, string $type = 'text')
+    public function __construct(DbModel $model, string $attribute, string $type = 'text')
     {
         $this->model = $model;
         $this->attribute = $attribute;

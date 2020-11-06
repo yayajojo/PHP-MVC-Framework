@@ -37,6 +37,14 @@
         </div>
     </nav>
     <div class="container">
+    <?php
+    use app\core\Application;
+    if($message = Application::$app->session->getFlash('success')):?>
+    <div class="alert alert-success">
+       <?=$message?>
+      
+    </div>
+    <?php endif; ?>
         {{content}}
     </div>
 
