@@ -6,8 +6,8 @@ namespace app\core;
 class Controller
 {
 
-    public function render($layout, $view, array $params = [])
+    public function render($view, $layout, array $params = [])
     {
-        return Application::$app->router->renderView($layout, $view, $params);
+        return Application::$app->router->renderView($view, $layout, $params);
     }
 }

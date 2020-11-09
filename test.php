@@ -2,11 +2,22 @@
 
 <?php
 
-$arr = [1,2,4];
-
-foreach($arr as &$a){
-    $a = $a*$a;
+ class A
+{
+    public function calls()
+    {   
+        var_dump($this);
+    }
+    public function test()
+    {
+         echo 'test';
+    }
 }
 
-print_r($arr);
+class B extends A
+{
+    
+}
 
+(new B())->calls();
+(new A())->calls();

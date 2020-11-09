@@ -1,13 +1,11 @@
-<form method="POST" action="/login">
-    <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" class="form-control" name="email" placeholder="Email">
-    </div>
-    <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" name="password" placeholder="Password">
-    </div>
+<?php
 
-    
-    <button type="submit" class="btn btn-primary">Sign in</button>
-</form>
+/**@var $model \app\models\LoginModel*/
+use app\forms\LoginForm;
+?>
+<?php $form = (new LoginForm())->begin("POST", "/login") ?>
+
+<?= $form->field($model, 'email') ?>
+<?= $form->field($model, 'password', 'password') ?>
+<button type="submit" class="btn btn-primary">Sign in</button>
+<?php $form->end() ?>

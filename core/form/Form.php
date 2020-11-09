@@ -1,15 +1,16 @@
 <?php
 namespace app\core\form;
 
-use app\core\DbModel;
+
 use app\core\Model;
 
-class Form
+
+abstract class Form
 {
-    public static function begin($method, $action)
+    public function begin($method, $action)
     {
        echo sprintf('<form method="%s" action="%s">',$method, $action);
-       return new Form();
+       return $this;
     }
 
     public function end()
@@ -17,8 +18,6 @@ class Form
         echo '</form>';
     }
 
-    public function field(DbModel $model,string $attribue, $type='text')
-    {
-        return new Field($model,$attribue,$type);
-    }
+    abstract public function field(Model $model,string $attribue, $type='text');
+   
 }

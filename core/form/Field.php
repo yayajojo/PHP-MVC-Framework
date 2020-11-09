@@ -2,22 +2,23 @@
 
 namespace app\core\form;
 
-use app\core\DbModel;
+use app\core\Model;
 
 
-class Field
+abstract class Field
 {
     protected $model;
     protected $attribute;
     protected $type;
 
-    public function __construct(DbModel $model, string $attribute, string $type = 'text')
+    public function __construct(Model $model, string $attribute, string $type = 'text')
     {
         $this->model = $model;
         $this->attribute = $attribute;
         $this->type = $type;
     }
-
+    abstract public function lables($attribute);
+    
     public function __toString()
     {
         return sprintf(
@@ -33,7 +34,7 @@ class Field
          </div>
          </div>',
             $this->attribute,
-            ucfirst($this->attribute),
+            $this->lables($this->attribute)??$this->attribute,
             $this->type,
             $this->model->hasError($this->attribute) ? ' is-invalid' : '',
             $this->attribute,

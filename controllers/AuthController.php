@@ -5,13 +5,14 @@ namespace app\controllers;
 use app\core\Application;
 use app\core\Controller;
 use app\core\Request;
-use app\models\User;
+use app\models\LoginModel;
+use app\models\RegisterModel;
 
 class AuthController extends Controller
 {
     public function register(Request $request)
     {
-        $user = new User();
+        $user = new RegisterModel();
         if ($request->isGet()) {
             return $this->render('register', 'auth', ['model' => $user]);
         } elseif ($request->isPost()) {
@@ -26,9 +27,15 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
+        $user = new LoginModel();
         if ($request->isGet()) {
-            return $this->render('login', 'main');
+            return $this->render('login', 'auth', ['model' => $user]);
         } elseif ($request->isPost()) {
+            $user->loadData($request->getBody());
+            if($user->validate() && $user->login()){
+                Application::$app->response->redirect('/');
+            }
+            return $this->render('login', 'auth', ['model' => $user]);
         }
     }
 }
