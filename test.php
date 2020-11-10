@@ -1,23 +1,8 @@
 
-
 <?php
 
- class A
-{
-    public function calls()
-    {   
-        var_dump($this);
-    }
-    public function test()
-    {
-         echo 'test';
-    }
-}
+$f = ['x' => 'y'];
 
-class B extends A
-{
-    
-}
+//unset($f['x']);
 
-(new B())->calls();
-(new A())->calls();
+var_dump($f);

@@ -15,6 +15,7 @@ abstract class Model
      const RULE_MAX = 'max';
      const RULE_MATCH = 'match';
      const RULE_UNIQUE = 'unique';
+     const RULE_EXISTS = 'exists';
     
 
     // abstact class => preventing the commonly used data 
@@ -38,27 +39,40 @@ abstract class Model
                 $value = $this->{$attribute};
 
                 if ($ruleName === self::RULE_REQUIRED && !$value) {
-                    $this->addErrors($attribute, $ruleName);
+                    $this->addRuleErrors($attribute, $ruleName);
                 } 
                 if ($ruleName === self::RULE_EMAIL && !filter_var($this->{$attribute}, FILTER_VALIDATE_EMAIL)) {
-                    $this->addErrors($attribute, $ruleName);
+                    $this->addRuleErrors($attribute, $ruleName);
                 } 
                 
                 if ($ruleName === self::RULE_MIN && (strlen($value) < $rule[$ruleName])) {
-                    $this->addErrors($attribute, $ruleName, $rule);
+                    $this->addRuleErrors($attribute, $ruleName, $rule);
                 } 
                 if ($ruleName === self::RULE_MAX && strlen($value) > $rule[$ruleName]) {
-                    $this->addErrors($attribute, $ruleName, $rule);
+                    $this->addRuleErrors($attribute, $ruleName, $rule);
                 } 
                 if ($ruleName === self::RULE_MATCH && $this->{$attribute} !== $this->{$rule[$ruleName]}) {
-                    $this->addErrors($attribute, $ruleName, $rule);
+                    $this->addRuleErrors($attribute, $ruleName, $rule);
                 }
                 if($ruleName === self::RULE_UNIQUE && $this->isNotUnique($attribute, $rule)){
-                    $this->addErrors($attribute, $ruleName);
+                    $this->addRuleErrors($attribute, $ruleName);
+                }
+                if($ruleName === self::RULE_EXISTS && !$this->exists($attribute, $rule)){
+                    $this->addRuleErrors($attribute, $ruleName);
                 }
             }
         }
         return empty($this->errors);
+    }
+    protected function exists($attribute, $rule){
+        $table = $rule['table'];
+        $column = $rule['column']?? $attribute;
+        $statement = Application::$app->db->pdo->prepare("SELECT $column FROM $table WHERE $column = :$attribute");
+        $statement->bindValue(":$attribute",$this->{$attribute});
+        $statement->execute();
+        $existedData = $statement->fetchAll();
+        return !empty($existedData);
+         
     }
     protected function isNotUnique($attribute, array $rule)
     {
@@ -77,7 +91,7 @@ abstract class Model
        }
        return false;
     }
-    protected function addErrors($attribute, $ruleName, $rule= [])
+    protected function addRuleErrors($attribute, $ruleName, $rule= [])
     {
         $errorMessage = $this->errorMessages($ruleName) ?? '';
         if (!empty($rule)) {
@@ -86,7 +100,9 @@ abstract class Model
         }
         $this->errors[$attribute][] = $errorMessage;
     }
-
+    public function addErrors($attribute, string $errorMessage){
+        $this->errors[$attribute][] = $errorMessage;
+    }
     protected function errorMessages($ruleName)
     {
         return [
@@ -95,7 +111,8 @@ abstract class Model
             self::RULE_MIN => 'Min length of this field must be {min}',
             self::RULE_MAX => 'Max length of this field must be {max}',
             self::RULE_MATCH => 'This field must be as same as {match}',
-            self::RULE_UNIQUE => 'Record of this field already exists'
+            self::RULE_UNIQUE => 'Record of this field already exists',
+            self::RULE_EXISTS => 'Record of this field dose not exist',
         ][$ruleName];
     }
 

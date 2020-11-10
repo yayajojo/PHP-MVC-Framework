@@ -64,7 +64,7 @@ class Router
            
         } elseif (is_array($action)) {
             $action[0] = new $action[0]();
-            echo call_user_func($action,$this->request);
+            echo call_user_func($action,$this->request, $this->response);
         } else{
             echo call_user_func($action);
         }

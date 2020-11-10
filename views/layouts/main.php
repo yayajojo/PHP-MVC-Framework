@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <title>Hello, world!</title>
-    
+    <?php
+
+    use app\core\Application; ?>
 </head>
 
 <body>
@@ -25,26 +27,35 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/contact">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/register">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a>
-                </li>
+
+                <?php if (Application::$app->isGuest()) : ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                <?php endif; ?>
+
+                <?php if (!Application::$app->isGuest()) : ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile">Profile</a>
+                    </li>
+                    <form style="margin:auto" action="/logout" method="post">
+                        <button type="submit"> logout</button>
+                    </form>
+                <?php endif; ?>
+
         </div>
     </nav>
     <div class="container">
-    <?php
-    use app\core\Application;
-    if($message = Application::$app->session->getFlash('success')):?>
-    <div class="alert alert-success">
-       <?=$message?>
-      
-    </div>
-    <?php endif; ?>
+        <?php
+        if ($message = Application::$app->session->getFlash('success')) : ?>
+            <div class="alert alert-success">
+                <?= $message ?>
+
+            </div>
+        <?php endif; ?>
         {{content}}
     </div>
 

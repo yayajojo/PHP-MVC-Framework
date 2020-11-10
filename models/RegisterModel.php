@@ -2,9 +2,9 @@
 
 namespace app\models;
 
-use app\core\DbModel;
 
-class RegisterModel extends DbModel
+
+trait RegisterModel 
 {
     public $firstname = '';
     public $lastname = '';

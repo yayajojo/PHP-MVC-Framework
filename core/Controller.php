@@ -10,4 +10,9 @@ class Controller
     {
         return Application::$app->router->renderView($view, $layout, $params);
     }
+
+    public function registerMiddleware(Middleware $middleware)
+    {
+          $middleware->execute();
+    }
 }

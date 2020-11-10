@@ -8,8 +8,8 @@ class LoginField extends Field
     public function lables($attribute)
     {
         return [
-            'email'=>'Email',
-            'password'=>'Password'
+            'email'=>'Your Email',
+            'password'=>'Your Password'
         ][$attribute];
     }
 }
