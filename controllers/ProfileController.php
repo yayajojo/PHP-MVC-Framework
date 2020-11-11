@@ -2,15 +2,16 @@
 
 namespace app\controllers;
 
-use app\core\Application;
+
 use app\core\Controller;
-use app\core\Request;
+use app\core\middlewares\AuthMiddleware;
+
 
 class ProfileController extends Controller
 {
    public function __construct()
    {
-       $this->registerMiddleware(new AuthMiddleware(['profile']));
+       $this->registerMiddleware(new AuthMiddleware(['create']));
    }
     
     public function create()

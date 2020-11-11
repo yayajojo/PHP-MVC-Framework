@@ -2,6 +2,8 @@
 
 namespace app\core;
 
+use app\core\exceptions\NotFoundException;
+
 class Router
 {
     protected $routes = [];
@@ -39,15 +41,19 @@ class Router
         include_once Application::$ROOT_DIR . "/views/$view.php";
         return ob_get_clean();
     }
-    public function renderView($view, $layout = '' ,array $params= [])
+    public function renderView($view, $layout = 'main' ,array $params= [])
     {
         $viewContent = $this->viewContent($view, $params);
-        if($layout == ''){
-            return $viewContent;
-        }
+        
         $layoutContent = $this->layout($layout);
         
         return str_replace("{{content}}", $viewContent ,$layoutContent);
+    }
+
+    public function renderOnlyView($view, array $params= [])
+    {
+        $viewContent = $this->viewContent($view, $params);
+        return $viewContent;
     }
     public function resolve()
     {
@@ -59,12 +65,16 @@ class Router
     protected function routeCallback($action)
     {
         if ($action == false) {
-            $this->response->setStatusCode(404);
-            echo $this->renderView('_404','main');
-           
+            throw new NotFoundException();
         } elseif (is_array($action)) {
-            $action[0] = new $action[0]();
-            echo call_user_func($action,$this->request, $this->response);
+            $controller = new $action[0]();
+            $action = $action[1];
+            Application::$app->controller = $controller;
+            Application::$app->controller->action = $action;
+            foreach($controller->getMiddlewares() as $middleware){ 
+                $middleware->execute();
+            }
+            echo call_user_func([$controller,$action],$this->request, $this->response);
         } else{
             echo call_user_func($action);
         }

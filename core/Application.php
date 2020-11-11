@@ -3,6 +3,7 @@
 namespace app\core;
 
 use app\models\User;
+use Exception;
 
 class Application
 {
@@ -13,6 +14,7 @@ class Application
     public static $app;
     public $db;
     public $session;
+    public $controller;
     public $userClass;
 
     public function __construct(string $rootPath, array $config)
@@ -35,7 +37,12 @@ class Application
     }
     public function run()
     {
-        $this->router->resolve();
+        try{
+            $this->router->resolve();
+        }catch(Exception $e){
+            $this->response->setStatusCode($e->getCode());
+            echo $this->router->renderView('_error','main',['exception'=>$e]);
+        }
     }
 
     public function isGuest()

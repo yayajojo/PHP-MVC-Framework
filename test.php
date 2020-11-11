@@ -1,8 +1,19 @@
 
 <?php
 
-$f = ['x' => 'y'];
+class A
+{
+    public $action;
+    public function __construct($x)
+    {
+        $this->action = $x;
+        $this->name = $this->getName();
+    }
 
-//unset($f['x']);
+    public function getName()
+    {
+        return 'yaya';
+    }
+}
 
-var_dump($f);
+echo (new A)->name;
