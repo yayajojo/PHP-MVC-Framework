@@ -2,10 +2,10 @@
 
 namespace app\fields;
 
-use app\core\form\Field;
 
+use app\core\form\InputField;
 
-class RegisterField extends Field
+class RegisterField extends InputField
 {
     public function lables($attribute)
     {
@@ -17,4 +17,5 @@ class RegisterField extends Field
             'password_confirmation' => 'Confirm password'
         ][$attribute];
     }
+    
 }

@@ -5,12 +5,12 @@ namespace app\core\form;
 use app\core\Model;
 
 
-abstract class Form
+class Form
 {
-    public function begin($method, $action)
+    public static function begin($method, $action)
     {
        echo sprintf('<form method="%s" action="%s">',$method, $action);
-       return $this;
+       return new self();
     }
 
     public function end()
@@ -18,6 +18,9 @@ abstract class Form
         echo '</form>';
     }
 
-    abstract public function field(Model $model,string $attribue, $type='text');
+    public function field(Model $model)
+    {
+
+    };
    
 }

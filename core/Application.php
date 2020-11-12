@@ -16,6 +16,8 @@ class Application
     public $session;
     public $controller;
     public $userClass;
+    public $view;
+    public $user;
 
     public function __construct(string $rootPath, array $config)
     {
@@ -27,6 +29,7 @@ class Application
         $this->db = new Database($config['db']);
         $this->session = new Session();
         $this->userClass = $config['userClass'];
+        $this->view = new View();
         $primaryValue = $this->session->get('user');
         if ($primaryValue) {
             $primaryKey = $this->userClass::primaryKey();
@@ -41,7 +44,7 @@ class Application
             $this->router->resolve();
         }catch(Exception $e){
             $this->response->setStatusCode($e->getCode());
-            echo $this->router->renderView('_error','main',['exception'=>$e]);
+            echo $this->view->renderView('_error','main',['exception'=>$e]);
         }
     }
 

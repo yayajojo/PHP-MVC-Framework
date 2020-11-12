@@ -1,6 +1,7 @@
 <?php
-
 use app\core\Application;
+/** @var $this app\core\View */
+$this->title = 'Home';
 ?>
 <?php if (Application::$app->isGuest()) : ?>
     <h1>Please register or login</h1>

@@ -1,6 +1,10 @@
 <?php
-/** @var $model \app\models\RegisterModel */
+/** 
+ * @var $model app\models\RegisterModel 
+ * @var $this  app\core\View
+ * */
 use app\forms\RegisterForm;
+$this->title = 'Register';
 ?>
 <?php 
 $form  = (new RegisterForm())->begin("POST", "/register");?>
@@ -13,7 +17,7 @@ $form  = (new RegisterForm())->begin("POST", "/register");?>
         </div>
     </div>
      <?= $form->field($model, 'email')?>
-     <?= $form->field($model, 'password','password')?>
-     <?= $form->field($model, 'password_confirmation','password')?>
+     <?= $form->field($model, 'password')->passwordField()?>
+     <?= $form->field($model, 'password_confirmation')->passwordField()?>
     <button type="submit" class="btn btn-primary">Sign in</button>
 <?php $form->end()?>
