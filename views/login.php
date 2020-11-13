@@ -3,12 +3,13 @@
  * @var $model \app\models\LoginModel
  * @var $this app\core\View
 */
-use app\forms\LoginForm;
+use app\core\form\Form;
+use app\fields\LoginField;
 $this->title = 'Login';
 ?>
-<?php $form = (new LoginForm())->begin("POST", "/login") ?>
+<?php $form = Form::begin("POST", "/login") ?>
 
-<?= $form->field($model, 'email') ?>
-<?= $form->field($model, 'password')->passwordField() ?>
+<?= $form->field(new LoginField($model,'email')) ?>
+<?= $form->field(new LoginField($model, 'password'))->passwordField() ?>
 <button type="submit" class="btn btn-primary">Sign in</button>
 <?php $form->end() ?>

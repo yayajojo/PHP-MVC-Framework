@@ -34,7 +34,9 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
-
+                <li class="nav-item active">
+                    <a class="nav-link" href="/contact">Contact <span class="sr-only">(current)</span></a>
+                </li>
                 <?php if (Application::$app->isGuest()) : ?>
                     <li class="nav-item">
                         <a class="nav-link" href="/register">Register</a>
