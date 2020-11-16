@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-use app\core\UserModel;
+use mayjhao\phphmvc\UserModel;
 
 class User extends UserModel
 { 

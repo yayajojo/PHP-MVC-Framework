@@ -1,7 +1,7 @@
 <?php
 namespace app\fields;
 
-use app\core\form\TextareaField;
+use mayjhao\phphmvc\form\TextareaField;
 
 class MessageField extends TextareaField
 {

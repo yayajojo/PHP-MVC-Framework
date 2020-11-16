@@ -3,7 +3,7 @@
 namespace app\fields;
 
 
-use app\core\form\InputField;
+use mayjhao\phphmvc\form\InputField;
 
 class RegisterField extends InputField
 {

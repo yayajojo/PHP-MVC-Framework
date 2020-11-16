@@ -1,9 +1,9 @@
 <?php
 /** 
  * @var $model app\models\RegisterModel 
- * @var $this  app\core\View
+ * @var $this  mayjhao\phphmvc\View
  * */
-use app\core\form\Form;
+use mayjhao\phphmvc\form\Form;
 use app\fields\RegisterField;
 $this->title = 'Register';
 ?>

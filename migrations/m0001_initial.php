@@ -2,7 +2,7 @@
 
 namespace app\migrations;
 
-use app\core\Application;
+use mayjhao\phphmvc\Application;
 
 class m0001_initial
 {

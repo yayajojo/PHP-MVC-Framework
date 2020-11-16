@@ -12,7 +12,7 @@
     <title>
     <?php
     /**
-     * @var $this app\core\View
+     * @var $this mayjhao\phphmvc\View
      */
     echo $this->title;
     ?>

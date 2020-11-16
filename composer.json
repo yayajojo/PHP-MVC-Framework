@@ -9,10 +9,11 @@
     ],
     "autoload": {
         "psr-4": {
-            "app\\":"./"
+            "app\\":"."
         }
     },
     "require": {
-        "vlucas/phpdotenv": "^5.2"
+        "vlucas/phpdotenv": "^5.2",
+        "mayjhao/php-mvc-framework-core": "^1.0.3"
     }
 }

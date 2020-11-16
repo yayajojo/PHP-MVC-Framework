@@ -1,10 +1,10 @@
 <?php 
 /** 
- * @var $form app\core\form\Form
+ * @var $form mayjhao\phphmvc\form\Form
  * @
- * @var $model app\core
+ * @var $model mayjhao\phphmvc
 */
-use app\core\form\Form;
+use mayjhao\phphmvc\form\Form;
 use app\fields\ContactField;
 use app\fields\MessageField;
 $this->title = 'Contact';

@@ -2,8 +2,8 @@
 
 namespace app\fields;
 
-use app\core\form\InputField;
-use app\core\Model;
+use mayjhao\phphmvc\form\InputField;
+use mayjhao\phphmvc\Model;
 
 class LoginField extends InputField
 {

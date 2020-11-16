@@ -1,6 +1,6 @@
 <?php
-use app\core\Application;
-/** @var $this app\core\View */
+use mayjhao\phphmvc\Application;
+/** @var $this mayjhao\phphmvc\View */
 $this->title = 'Home';
 ?>
 <?php if (Application::$app->isGuest()) : ?>

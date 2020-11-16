@@ -2,8 +2,8 @@
 
 namespace app\models;
 
-use app\core\Application;
-use app\core\Model;
+use mayjhao\phphmvc\Application;
+use mayjhao\phphmvc\Model;
 use PDO;
 
 class LoginModel extends Model

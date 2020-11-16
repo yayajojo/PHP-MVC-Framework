@@ -1,6 +1,6 @@
 <?php
 namespace app\fields;
-use app\core\form\InputField;
+use mayjhao\phphmvc\form\InputField;
 
 class ContactField extends InputField
 {

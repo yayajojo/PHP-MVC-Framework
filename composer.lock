@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2c19862d0ac5417605652b43c69a4c70",
+    "content-hash": "c4119328b65822e03e778e95c0f1024b",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -71,6 +71,40 @@
                 }
             ],
             "time": "2020-04-13T13:17:36+00:00"
+        },
+        {
+            "name": "mayjhao/php-mvc-framework-core",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yayajojo/php-mvc-framework-core.git",
+                "reference": "41f1b0f0b21a303710dba5192ca3fc7e4e07e533"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yayajojo/php-mvc-framework-core/zipball/41f1b0f0b21a303710dba5192ca3fc7e4e07e533",
+                "reference": "41f1b0f0b21a303710dba5192ca3fc7e4e07e533",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "mayjhao\\phphmvc\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "May Jhao",
+                    "email": "fleetinghappines@gmail.com"
+                }
+            ],
+            "description": "This is a self-made micro mvc framework core for learning framework concepts.",
+            "support": {
+                "issues": "https://github.com/yayajojo/php-mvc-framework-core/issues",
+                "source": "https://github.com/yayajojo/php-mvc-framework-core/tree/v1.0.2"
+            },
+            "time": "2020-11-16T09:16:42+00:00"
         },
         {
             "name": "phpoption/phpoption",

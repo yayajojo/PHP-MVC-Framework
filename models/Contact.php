@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-use app\core\Model;
+use mayjhao\phphmvc\Model;
 
 class Contact extends Model
 {

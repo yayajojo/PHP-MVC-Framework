@@ -3,8 +3,8 @@
 namespace app\controllers;
 
 
-use app\core\Controller;
-use app\core\middlewares\AuthMiddleware;
+use mayjhao\phphmvc\Controller;
+use mayjhao\phphmvc\middlewares\AuthMiddleware;
 
 
 class ProfileController extends Controller

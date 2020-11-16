@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use app\core\Application;
+use mayjhao\phphmvc\Application;
 use app\controllers\ProfileController;
 use app\controllers\SiteController;
 use app\controllers\AuthController;

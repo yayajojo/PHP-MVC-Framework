@@ -2,10 +2,10 @@
 
 namespace app\controllers;
 
-use app\core\Application;
-use app\core\Controller;
-use app\core\Request;
-use app\core\Response;
+use mayjhao\phphmvc\Application;
+use mayjhao\phphmvc\Controller;
+use mayjhao\phphmvc\Request;
+use mayjhao\phphmvc\Response;
 use app\models\LoginModel;
 use app\models\User;
 
