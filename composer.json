@@ -14,6 +14,6 @@
     },
     "require": {
         "vlucas/phpdotenv": "^5.2",
-        "mayjhao/php-mvc-framework-core": "^1.0.2"
+        "mayjhao/php-mvc-framework-core": "^v1.0.3"
     }
 }

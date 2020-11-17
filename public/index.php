@@ -7,12 +7,12 @@ use app\controllers\SiteController;
 use app\controllers\AuthController;
 use app\models\User;
 
-ini_set('session.save_path',dirname(__DIR__).'/sessions');
+ini_set('session.save_path', dirname(__DIR__) . '/sessions');
 
 $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->load();
 $config = [
-    'userClass'=>User::class,
+    'userClass' => User::class,
     'db' => [
         'dsn' => $_ENV['DB_DSN'],
         'user' => $_ENV['DB_USER'],
@@ -23,6 +23,10 @@ $config = [
 
 $path = dirname(__DIR__);
 $app = new Application($path, $config);
+$app->on(Application::EVENT_BEFORE_REQUEST, function () {
+    echo 'Trigger events before request.';
+});
+
 $app->router->get('/', [SiteController::class, 'home']);
 $app->router->get('/profile', [ProfileController::class, 'create']);
 $app->router->post('/contact', [SiteContactController::class, 'handleContact']);
