@@ -35,7 +35,7 @@
       1. 例外皆繼承PHP提供的Exception類別
       2. 實作403/404例外
   * 表單
-      1. 各種表單元件的抽想類別
+      1. 各種表單元件的抽像類別
   * 中介軟體
       1. abstract class BaseMiddleware，子類需實作execute抽象方法
       2. 實作 class AuthMiddleware判斷路徑是否需要登入才能拜訪
