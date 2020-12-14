@@ -8,7 +8,7 @@ use mayjhao\phphmvc\Model;
 class LoginField extends InputField
 {
     
-    public function lables($attribute)
+    public function labels($attribute)
     {
         return [
             'email' => 'Your Email',

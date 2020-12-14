@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "afe20332f77719303f886c9f87106af1",
+    "content-hash": "b28e0a8747f50f4442422a9e2226dbc2",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -74,16 +74,16 @@
         },
         {
             "name": "mayjhao/php-mvc-framework-core",
-            "version": "v1.0.3",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yayajojo/php-mvc-framework-core.git",
-                "reference": "c3222d8ae7d53a218aa28c712e196327fc54eb2e"
+                "reference": "7258a1ca5f2c2a620716d39f59d0314ea342084d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yayajojo/php-mvc-framework-core/zipball/c3222d8ae7d53a218aa28c712e196327fc54eb2e",
-                "reference": "c3222d8ae7d53a218aa28c712e196327fc54eb2e",
+                "url": "https://api.github.com/repos/yayajojo/php-mvc-framework-core/zipball/7258a1ca5f2c2a620716d39f59d0314ea342084d",
+                "reference": "7258a1ca5f2c2a620716d39f59d0314ea342084d",
                 "shasum": ""
             },
             "type": "library",
@@ -102,9 +102,9 @@
             "description": "This is a self-made micro mvc framework core for learning framework concepts.",
             "support": {
                 "issues": "https://github.com/yayajojo/php-mvc-framework-core/issues",
-                "source": "https://github.com/yayajojo/php-mvc-framework-core/tree/v1.0.3"
+                "source": "https://github.com/yayajojo/php-mvc-framework-core/tree/v2.0.0"
             },
-            "time": "2020-11-17T11:31:19+00:00"
+            "time": "2020-12-14T08:00:39+00:00"
         },
         {
             "name": "phpoption/phpoption",

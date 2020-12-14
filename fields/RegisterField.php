@@ -7,7 +7,7 @@ use mayjhao\phphmvc\form\InputField;
 
 class RegisterField extends InputField
 {
-    public function lables($attribute)
+    public function labels($attribute)
     {
         return [
             'firstname' => 'First name',
