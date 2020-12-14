@@ -15,9 +15,8 @@
   * `cd php-mvc-framework`
 - Composer下載依賴的套件
   * `composer install`
-  *  改檔案名並設定.env檔中環境變數 `mv .env.example  .env`
+  *  複製.env.example檔案.env檔並設定環境變數 `cp .env.example  .env`
 - 生成mirgations和users資料表 
-  `cd ..`
   `php migrations.php`
 - 使用PHP內建開發伺服器，開啟並監聽8001埠號
   * `cd public`
